@@ -1,0 +1,6 @@
+C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\Atendimento Hospitalar\bin\Debug\Atendimento Hospitalar.exe.config
+C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\Atendimento Hospitalar\bin\Debug\Atendimento Hospitalar.exe
+C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\Atendimento Hospitalar\bin\Debug\Atendimento Hospitalar.pdb
+C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.csprojResolveAssemblyReference.cache
+C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.exe
+C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.pdb
