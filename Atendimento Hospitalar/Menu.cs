@@ -28,37 +28,7 @@ namespace Atendimento_Hospitalar
             do
                 if (escolha == "C" || escolha == "c")
                 {
-                    for (int i=0; i<3; i++)
-                    {
-                        P[i] = new Paciente();
-                    }
-                   
-                    if (P[0].nome != "")
-                    {
-                        P[0] = new Paciente();
-                        P[0].cadastrar();
-                        P[0].preferencia();
-                    }
-                    else if (P[1].nome != "")
-                    {
-                        P[1] = new Paciente();
-                        P[1].cadastrar();
-                        P[1].preferencia();
-                    }
-                    else if (P[2].nome != "")
-                    {
-                        P[2] = new Paciente();
-                        P[2].cadastrar();
-                        P[2].preferencia();
-                    }
-                    else if (P[3].nome == "")
-                    {
-
-                    }
-                    else if (P[4].nome == "")
-                    {
-
-                    }
+                    
                 }
                 else if (escolha == "L" || escolha == "l")
                 {
