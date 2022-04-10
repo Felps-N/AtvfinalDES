@@ -4,3 +4,10 @@ C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\At
 C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.csprojResolveAssemblyReference.cache
 C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.exe
 C:\Users\Tecnico\Documents\Visual Studio 2015\Projects\Atendimento Hospitalar\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.pdb
+C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\bin\Debug\Atendimento Hospitalar.exe.config
+C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\bin\Debug\Atendimento Hospitalar.exe
+C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\bin\Debug\Atendimento Hospitalar.pdb
+C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.csprojAssemblyReference.cache
+C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.csproj.CoreCompileInputs.cache
+C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.exe
+C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.pdb

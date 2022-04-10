@@ -13,7 +13,6 @@ namespace Atendimento_Hospitalar
         public int idade;
         public double telefone;
         public string email;
-        public string endereco;
         public string preferencial;
         public bool preferencialbool;
         
@@ -33,6 +32,7 @@ namespace Atendimento_Hospitalar
             Console.WriteLine("Insira se o paciente irá para fila preferencial");
             preferencial = Console.ReadLine();
             Console.WriteLine("--Cadastro Efetuado--");
+            Console.ReadKey();
             Console.Clear();
         }
 
@@ -48,6 +48,26 @@ namespace Atendimento_Hospitalar
             }
         }
 
+        public void novocadastrar()
+        {
+            Console.WriteLine("-----Insira os novos dados do paciente para recadastrar-----");
+            Console.WriteLine("Insira o novo CPF do paciente");
+            cpf = double.Parse(Console.ReadLine());
+            Console.WriteLine("Insira o novo nome do paciente");
+            nome = Console.ReadLine();
+            Console.WriteLine("Insira a nova idade do paciente");
+            idade = int.Parse(Console.ReadLine());
+            Console.WriteLine("Insira o novo telefone do paciente");
+            telefone = double.Parse(Console.ReadLine());
+            Console.WriteLine("Insira o novo e-mail do paciente");
+            email = Console.ReadLine();
+            Console.WriteLine("Insira de novo, se o paciente irá para fila preferencial");
+            preferencial = Console.ReadLine();
+            Console.WriteLine("--Cadastro Efetuado--");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
         public void listar()
         {
             Console.WriteLine("CPF: {0}", cpf);
@@ -56,6 +76,7 @@ namespace Atendimento_Hospitalar
             Console.WriteLine("Telefone: {0}", telefone);
             Console.WriteLine("E-mail: {0}", email);
             Console.WriteLine("Preferência: {0}", preferencialbool);
+            Console.WriteLine("  ");
         }
     }
 }

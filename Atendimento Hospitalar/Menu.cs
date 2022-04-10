@@ -9,9 +9,11 @@ namespace Atendimento_Hospitalar
     class Menu
     {
         public string escolha;
+        Paciente[] P = new Paciente[11];
 
-        public void escolhamenu()
+    public string escolhamenu()
         {
+            Console.Clear();
             Console.WriteLine("Escolha uma das opcções abaixo para o sistema");
             Console.WriteLine("C - Cadastrar Paciente");
             Console.WriteLine("L - Listar Pacientes");
@@ -20,28 +22,217 @@ namespace Atendimento_Hospitalar
             Console.WriteLine("Q - Encerrar Programa");
             escolha = Console.ReadLine();
             Console.Clear();
+            return escolha;
         }
-
+       
         public void funcaomenu()
         {
-            Paciente[] P = new Paciente[10];
-            do
-                if (escolha == "C" || escolha == "c")
+            
+            if (escolha == "C" || escolha == "c")
+            {
+                if (P[0] == null)
                 {
-                    
+                    P[0] = new Paciente();
+                    P[0].cadastrar();
+                    P[0].preferencia();
                 }
-                else if (escolha == "L" || escolha == "l")
+                else if (P[1] == null)
                 {
-                    Console.WriteLine("-----Lista dos Pacientes-----");
-                    for (int i = 0; i < 2; i++)
+                    P[1] = new Paciente();
+                    P[1].cadastrar();
+                    P[1].preferencia();
+                }
+                else if (P[2] == null)
+                {
+                    P[2] = new Paciente();
+                    P[2].cadastrar();
+                    P[2].preferencia();
+                }
+                else if (P[3] == null)
+                {
+                    P[3] = new Paciente();
+                    P[3].cadastrar();
+                    P[3].preferencia();
+                }
+                else if (P[4] == null)
+                {
+                    P[4] = new Paciente();
+                    P[4].cadastrar();
+                    P[4].preferencia();
+                }
+                else if (P[5] == null)
+                {
+                    P[5] = new Paciente();
+                    P[5].cadastrar();
+                    P[5].preferencia();
+                }
+                else if (P[6] == null)
+                {
+                    P[6] = new Paciente();
+                    P[6].cadastrar();
+                    P[6].preferencia();
+                }
+                else if (P[7] == null)
+                {
+                    P[7] = new Paciente();
+                    P[7].cadastrar();
+                    P[7].preferencia();
+                }
+                else if (P[8] == null)
+                {
+                    P[8] = new Paciente();
+                    P[8].cadastrar();
+                    P[8].preferencia();
+                }
+                else if (P[9] == null)
+                {
+                    P[9] = new Paciente();
+                    P[9].cadastrar();
+                    P[9].preferencia();
+                } 
+
+                for (int k = 0; k < 10; k++)
+                {
+                    for (int j = k + 1; j < 10; j++)
                     {
-                        P[i].listar();
-                        Console.WriteLine("    ");
+                        if (P[j] != null)
+                        {
+                            if (P[k].preferencialbool == false && P[j].preferencialbool == true)
+                            {
+                                P[10] = P[k];
+                                P[k] = P[j];
+                                P[j] = P[10];
+                            }
+                        }
                     }
+                }
+
+            }
+            else if (escolha == "L" || escolha == "l")
+            {
+                Console.WriteLine("-----Lista dos Pacientes-----");
+                if (P[0] != null)
+                {
+                    P[0] = P[0];
+                    P[0].listar();
+                }
+                if (P[1] != null)
+                {
+                    P[1] = P[1];
+                    P[1].listar();
+                }
+                if (P[2] != null)
+                {
+                    P[2] = P[2];
+                    P[2].listar();
+                }
+                if (P[3] != null)
+                {
+                    P[3] = P[3];
+                    P[3].listar();
+                }
+                if (P[4] != null)
+                {
+                    P[4] = P[4];
+                    P[4].listar();
+                }
+                if (P[5] != null)
+                {
+                    P[5] = P[5];
+                    P[5].listar();
+                }
+                if (P[6] != null)
+                {
+                    P[6] = P[6];
+                    P[6].listar();
+                }
+                if (P[7] != null)
+                {
+                    P[7] = P[7];
+                    P[7].listar();
+                }
+                if (P[8] != null)
+                {
+                    P[8] = P[8];
+                    P[8].listar();
+                }
+                if (P[9] != null)
+                {
+                    P[9] = P[9];
+                    P[9].listar();
+                }
+                if(P[0] == null)
+                {
+                    Console.WriteLine("Nenhum Paciente Cadastrado");
+                }
+                Console.ReadKey();
+            }
+            else if (escolha == "A" || escolha == "a")
+            {
+                if (P[0] == null)
+                {
+                    Console.WriteLine("Nenhum Paciente Cadastrado");
                     Console.ReadKey();
                 }
-            while (escolha != "Q" || escolha != "q");
-            Console.WriteLine("Programa Encerrado");
+                else
+                {
+                    Console.WriteLine("Escolha a posição do paciente para alterar os dados");
+                    int p;
+                    p = int.Parse(Console.ReadLine());
+                    P[p] = new Paciente();
+                    P[p].novocadastrar();
+                    P[p].preferencia();
+                    for (int k = 0; k < 10; k++)
+                    {
+                        for (int j = k + 1; j < 10; j++)
+                        {
+                            if (P[j] != null)
+                            {
+                                if (P[k].preferencialbool == false && P[j].preferencialbool == true)
+                                {
+                                    P[10] = P[k];
+                                    P[k] = P[j];
+                                    P[j] = P[10];
+                                }
+                            }
+                        }
+                    }
+                }
+               
+
+            }
+            else if (escolha == "T" || escolha == "t")
+            {
+                Console.WriteLine("Dados do Paciente Atendido:");
+                if(P[0] != null)
+                {
+                    //P[0] = P[0];
+                    P[0].listar();
+                    Console.ReadKey();
+                    int e = 1;
+                    for (int s = 0; s < 9; s++)
+                    {
+                        P[s] = P[e];
+                        e++;
+                    }
+                    for (int y = 9; y > -1; y--)
+                    {
+                        P[y] = P[y];
+                        if (P[y] != null)
+                        {
+                            if (P[y].preferencialbool == null)
+                            {
+                                P[y] = null;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Nenhum Paciente Cadastrado");
+                    Console.ReadKey();
+                }
+            }
         }
     }
 }

@@ -10,9 +10,17 @@ namespace Atendimento_Hospitalar
     {
         static void Main(string[] args)
         {
+            string escolha;
             Menu M = new Menu();
-            M.escolhamenu();
-            M.funcaomenu();
+
+            escolha = M.escolhamenu();
+            while (escolha != "Q" || escolha != "q")
+            {
+                M.funcaomenu();
+                escolha = M.escolhamenu();
+            };
+            Console.WriteLine("Programa Encerrado");
+            Console.ReadKey();
         }
     }
 }
