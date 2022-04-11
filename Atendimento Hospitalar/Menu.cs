@@ -89,7 +89,12 @@ namespace Atendimento_Hospitalar
                     P[9] = new Paciente();
                     P[9].cadastrar();
                     P[9].preferencia();
-                } 
+                }
+                else
+                {
+                    Console.WriteLine("Lista Lotada");
+                    Console.ReadKey();
+                }
 
                 for (int k = 0; k < 10; k++)
                 {
@@ -113,52 +118,52 @@ namespace Atendimento_Hospitalar
                 Console.WriteLine("-----Lista dos Pacientes-----");
                 if (P[0] != null)
                 {
-                    P[0] = P[0];
+                    //P[0] = P[0];
                     P[0].listar();
                 }
                 if (P[1] != null)
                 {
-                    P[1] = P[1];
+                    //P[1] = P[1];
                     P[1].listar();
                 }
                 if (P[2] != null)
                 {
-                    P[2] = P[2];
+                    //P[2] = P[2];
                     P[2].listar();
                 }
                 if (P[3] != null)
                 {
-                    P[3] = P[3];
+                    //P[3] = P[3];
                     P[3].listar();
                 }
                 if (P[4] != null)
                 {
-                    P[4] = P[4];
+                    //P[4] = P[4];
                     P[4].listar();
                 }
                 if (P[5] != null)
                 {
-                    P[5] = P[5];
+                    //P[5] = P[5];
                     P[5].listar();
                 }
                 if (P[6] != null)
                 {
-                    P[6] = P[6];
+                    //P[6] = P[6];
                     P[6].listar();
                 }
                 if (P[7] != null)
                 {
-                    P[7] = P[7];
+                    //P[7] = P[7];
                     P[7].listar();
                 }
                 if (P[8] != null)
                 {
-                    P[8] = P[8];
+                    //P[8] = P[8];
                     P[8].listar();
                 }
                 if (P[9] != null)
                 {
-                    P[9] = P[9];
+                    //P[9] = P[9];
                     P[9].listar();
                 }
                 if(P[0] == null)
@@ -179,7 +184,7 @@ namespace Atendimento_Hospitalar
                     Console.WriteLine("Escolha a posição do paciente para alterar os dados");
                     int p;
                     p = int.Parse(Console.ReadLine());
-                    P[p] = new Paciente();
+                    //P[p] = new Paciente();
                     P[p].novocadastrar();
                     P[p].preferencia();
                     for (int k = 0; k < 10; k++)
@@ -217,13 +222,17 @@ namespace Atendimento_Hospitalar
                     }
                     for (int y = 9; y > -1; y--)
                     {
-                        P[y] = P[y];
+                        //P[y] = P[y];
                         if (P[y] != null)
                         {
                             if (P[y].preferencialbool == null)
                             {
                                 P[y] = null;
                             }
+                        }
+                        if(P[9] != null)
+                        {
+                            P[9] = null;
                         }
                     }
                 }
