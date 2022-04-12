@@ -9,7 +9,7 @@ namespace Atendimento_Hospitalar
     class Menu
     {
         public string escolha;
-        Paciente[] P = new Paciente[11];
+        Paciente[] P = new Paciente[10];
         Paciente paux;
 
     public string escolhamenu()
