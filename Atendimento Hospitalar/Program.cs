@@ -17,7 +17,7 @@ namespace Atendimento_Hospitalar
             {
                 esc = M.escolhamenu();
                 M.funcaomenu();
-            }while (esc != "Q" || esc != "q") ;
+            }while (esc != "Q") ;
             Console.WriteLine("Programa Encerrado");
             Console.ReadKey();
         }

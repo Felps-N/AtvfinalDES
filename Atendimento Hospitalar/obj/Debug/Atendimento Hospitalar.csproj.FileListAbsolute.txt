@@ -11,3 +11,9 @@ C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospita
 C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.csproj.CoreCompileInputs.cache
 C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.exe
 C:\Users\Felipe\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.pdb
+C:\Users\Tecnico\Desktop\atv\Atendimento Hospitalar\bin\Debug\Atendimento Hospitalar.exe.config
+C:\Users\Tecnico\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.exe
+C:\Users\Tecnico\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.pdb
+C:\Users\Tecnico\Desktop\atv\Atendimento Hospitalar\bin\Debug\Atendimento Hospitalar.exe
+C:\Users\Tecnico\Desktop\atv\Atendimento Hospitalar\bin\Debug\Atendimento Hospitalar.pdb
+C:\Users\Tecnico\Desktop\atv\Atendimento Hospitalar\obj\Debug\Atendimento Hospitalar.csprojResolveAssemblyReference.cache

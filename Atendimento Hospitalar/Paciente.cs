@@ -76,7 +76,12 @@ namespace Atendimento_Hospitalar
             Console.WriteLine("Telefone: {0}", telefone);
             Console.WriteLine("E-mail: {0}", email);
             Console.WriteLine("Preferência: {0}", preferencialbool);
-            Console.WriteLine("  ");
         }
+
+        public void alteracao()
+        {
+            Console.Write("CPF: {0}", cpf);
+        }
+
     }
 }

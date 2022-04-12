@@ -10,6 +10,7 @@ namespace Atendimento_Hospitalar
     {
         public string escolha;
         Paciente[] P = new Paciente[11];
+        Paciente paux;
 
     public string escolhamenu()
         {
@@ -22,7 +23,7 @@ namespace Atendimento_Hospitalar
             Console.WriteLine("Q - Encerrar Programa");
             escolha = Console.ReadLine();
             Console.Clear();
-            return escolha;
+            return escolha.ToUpper();
         }
        
         public void funcaomenu()
@@ -30,7 +31,23 @@ namespace Atendimento_Hospitalar
             
             if (escolha == "C" || escolha == "c")
             {
-                if (P[0] == null)
+                for (int i = 0; i<10; i++)
+                {
+                    if (P[i] == null)
+                    {
+                        P[i] = new Paciente();
+                        P[i].cadastrar();
+                        P[i].preferencia();
+                        i = 10;
+                    }
+                    else if(P[9] != null)
+                    {
+                        Console.WriteLine("Lista Lotada");
+                        Console.ReadKey();
+                    }
+                }
+
+                /*if (P[0] == null)
                 {
                     P[0] = new Paciente();
                     P[0].cadastrar();
@@ -94,7 +111,7 @@ namespace Atendimento_Hospitalar
                 {
                     Console.WriteLine("Lista Lotada");
                     Console.ReadKey();
-                }
+                }*/
 
                 for (int k = 0; k < 10; k++)
                 {
@@ -104,9 +121,9 @@ namespace Atendimento_Hospitalar
                         {
                             if (P[k].preferencialbool == false && P[j].preferencialbool == true)
                             {
-                                P[10] = P[k];
+                                paux = P[k];
                                 P[k] = P[j];
-                                P[j] = P[10];
+                                P[j] = paux;
                             }
                         }
                     }
@@ -116,7 +133,21 @@ namespace Atendimento_Hospitalar
             else if (escolha == "L" || escolha == "l")
             {
                 Console.WriteLine("-----Lista dos Pacientes-----");
-                if (P[0] != null)
+                for (int i = 0; i < 10; i++)
+                {
+                    if (P[i] != null)
+                    {
+                        P[i].listar();
+                        Console.WriteLine("Sua posição na fila é: {0}", i);
+                        Console.WriteLine("  ");
+                    }
+                }
+                if (P[0] == null)
+                {
+                    Console.WriteLine("Nenhum Paciente Cadastrado");
+                }
+                Console.ReadKey();
+                /*if (P[0] != null)
                 {
                     //P[0] = P[0];
                     P[0].listar();
@@ -169,8 +200,7 @@ namespace Atendimento_Hospitalar
                 if(P[0] == null)
                 {
                     Console.WriteLine("Nenhum Paciente Cadastrado");
-                }
-                Console.ReadKey();
+                }*/
             }
             else if (escolha == "A" || escolha == "a")
             {
@@ -181,6 +211,14 @@ namespace Atendimento_Hospitalar
                 }
                 else
                 {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (P[i] != null)
+                        {
+                            P[i].alteracao();
+                            Console.WriteLine(" - Posição: {0}", i);
+                        }
+                    }
                     Console.WriteLine("Escolha a posição do paciente para alterar os dados");
                     int p;
                     p = int.Parse(Console.ReadLine());
@@ -195,9 +233,9 @@ namespace Atendimento_Hospitalar
                             {
                                 if (P[k].preferencialbool == false && P[j].preferencialbool == true)
                                 {
-                                    P[10] = P[k];
+                                    paux = P[k];
                                     P[k] = P[j];
-                                    P[j] = P[10];
+                                    P[j] = paux;
                                 }
                             }
                         }
