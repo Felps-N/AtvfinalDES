@@ -8,80 +8,73 @@ namespace Atendimento_Hospitalar
 {
     class Paciente
     {
-        public double cpf;
-        public string nome;
-        public int idade;
-        public double telefone;
-        public string email;
-        public string preferencial;
-        public bool preferencialbool;
-        
-        public void cadastrar()
+        private double cpf;
+        private string nome;
+        private int idade;
+        private double telefone;
+        private string email;
+        private string preferencial;
+
+        public double getCpf()
         {
-            Console.WriteLine("-----Insira os dados do paciente para cadastro-----");
-            Console.WriteLine("Insira o CPF do paciente");
-            cpf = double.Parse(Console.ReadLine());
-            Console.WriteLine("Insira o nome do paciente");
-            nome = Console.ReadLine();
-            Console.WriteLine("Insira a idade do paciente");
-            idade = int.Parse(Console.ReadLine());
-            Console.WriteLine("Insira o telefone do paciente");
-            telefone = double.Parse(Console.ReadLine());
-            Console.WriteLine("Insira o e-mail do paciente");
-            email = Console.ReadLine();
-            Console.WriteLine("Insira se o paciente irá para fila preferencial");
-            preferencial = Console.ReadLine();
-            Console.WriteLine("--Cadastro Efetuado--");
-            Console.ReadKey();
-            Console.Clear();
+            return this.cpf;
         }
 
-        public void preferencia()
+        public void setCpf(double cpf)
         {
-            if (preferencial == "Sim" || preferencial == "sim")
-            {
-                preferencialbool = true;
-            }
-            else
-            {
-                preferencialbool = false;
-            }
+            this.cpf = cpf;
         }
 
-        public void novocadastrar()
+        public string getNome()
         {
-            Console.WriteLine("-----Insira os novos dados do paciente para recadastrar-----");
-            Console.WriteLine("Insira o novo CPF do paciente");
-            cpf = double.Parse(Console.ReadLine());
-            Console.WriteLine("Insira o novo nome do paciente");
-            nome = Console.ReadLine();
-            Console.WriteLine("Insira a nova idade do paciente");
-            idade = int.Parse(Console.ReadLine());
-            Console.WriteLine("Insira o novo telefone do paciente");
-            telefone = double.Parse(Console.ReadLine());
-            Console.WriteLine("Insira o novo e-mail do paciente");
-            email = Console.ReadLine();
-            Console.WriteLine("Insira de novo, se o paciente irá para fila preferencial");
-            preferencial = Console.ReadLine();
-            Console.WriteLine("--Cadastro Efetuado--");
-            Console.ReadKey();
-            Console.Clear();
+            return this.nome;
         }
 
-        public void listar()
+        public void setNome(string nome)
         {
-            Console.WriteLine("CPF: {0}", cpf);
-            Console.WriteLine("Nome: {0}", nome);
-            Console.WriteLine("Idade: {0}", idade);
-            Console.WriteLine("Telefone: {0}", telefone);
-            Console.WriteLine("E-mail: {0}", email);
-            Console.WriteLine("Preferência: {0}", preferencialbool);
+            this.nome = nome;
         }
 
-        public void alteracao()
+        public double getIdade()
         {
-            Console.Write("CPF: {0}", cpf);
+            return this.idade;
+        }
+
+        public void setIdade(int idade)
+        {
+            this.idade = idade;
+        }
+
+        public double getTelefone()
+        {
+            return this.telefone;
+        }
+
+        public void setTelefone(double telefone)
+        {
+            this.telefone = telefone;
+        }
+
+        public string getEmail()
+        {
+            return this.email;
+        }
+
+        public void setEmail(string email)
+        {
+            this.email = email;
+        }
+
+        public string getPreferencial()
+        {
+            return this.preferencial;
+        }
+
+        public void setPreferencial(string preferencial)
+        {
+            this.preferencial = preferencial;
         }
 
     }
+
 }

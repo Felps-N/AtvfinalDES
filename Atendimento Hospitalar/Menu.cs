@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Atendimento_Hospitalar
+/*namespace Atendimento_Hospitalar
 {
     class Menu
     {
@@ -111,7 +111,7 @@ namespace Atendimento_Hospitalar
                 {
                     Console.WriteLine("Lista Lotada");
                     Console.ReadKey();
-                }*/
+                }/
 
                 for (int k = 0; k < 10; k++)
                 {
@@ -200,7 +200,7 @@ namespace Atendimento_Hospitalar
                 if(P[0] == null)
                 {
                     Console.WriteLine("Nenhum Paciente Cadastrado");
-                }*/
+                }/
             }
             else if (escolha == "A" || escolha == "a")
             {
@@ -282,4 +282,4 @@ namespace Atendimento_Hospitalar
             }
         }
     }
-}
+}*/
