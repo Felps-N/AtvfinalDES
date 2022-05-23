@@ -15,7 +15,7 @@ namespace Atendimento_Hospitalar
         public PacienteDAO()
         {
 
-            conexao = new MySqlConnection("server=localhost; database=pollinos; uid=root; password=");
+            conexao = new MySqlConnection("server=localhost; database=pollinos; uid=root; password=root");
 
             try
             {
@@ -65,7 +65,7 @@ namespace Atendimento_Hospitalar
 
         public void consultarPaciente(Paciente P)
         {
-            String sql = "select * from fila order by preferencial desc;;";
+            String sql = "select * from fila order by preferencial desc;";
 
             MySqlCommand banco = new MySqlCommand(sql, conexao);
 
