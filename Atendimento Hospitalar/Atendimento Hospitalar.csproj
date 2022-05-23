@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controle.cs" />
-    <Compile Include="Menu.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="PacienteDAO.cs" />
     <Compile Include="Program.cs" />

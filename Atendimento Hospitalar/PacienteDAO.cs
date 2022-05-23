@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Threading;
 
 namespace Atendimento_Hospitalar
 {
@@ -77,6 +78,10 @@ namespace Atendimento_Hospitalar
 
                 Console.WriteLine(" ");
 
+                for (int i = 3; i > 0; i--)
+                {
+                    Thread.Sleep(500);
+                }
                 Console.ReadKey();
             }
             conexao.Close();
@@ -84,6 +89,8 @@ namespace Atendimento_Hospitalar
 
         public void atualizarPaciente(Paciente p)
         {
+            conexao.Open();
+
             String sql = "update fila set nome=@nome, idade=@idade, telefone=@telefone, email=@email, preferencial=@preferencial where cpf=@cpf;";
 
             MySqlCommand banco = new MySqlCommand(sql, conexao);
@@ -133,6 +140,8 @@ namespace Atendimento_Hospitalar
 
         public void deletarPaciente(Paciente p)
         {
+            conexao.Open();
+
             String sql = "delete from fila where cpf=@cpf;";
 
             MySqlCommand banco = new MySqlCommand(sql, conexao);
