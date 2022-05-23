@@ -15,14 +15,23 @@ namespace Atendimento_Hospitalar
         public PacienteDAO()
         {
 
-            conexao = new MySqlConnection("server=localhost; database=pollinos; uid=root; password=root");
+            conexao = new MySqlConnection("server=localhost; database=pollinos; uid=root; password=");
 
-            conexao.Open();
+            try
+            {
+                conexao.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro ao se conectar ao banco de dados");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
         }
 
         public void cadastrarPaciente(Paciente p)
         {
-            String sql = "insert into fila values(@cpf, @nome, @idade, @telefone, @email, @preferencial);";
+            String sql = "insert into fila (cpf, nome, idade, telefone, email, preferencial) values(@cpf, @nome, @idade, @telefone, @email, @preferencial);";
 
             MySqlCommand banco = new MySqlCommand(sql, conexao);
 
@@ -40,14 +49,23 @@ namespace Atendimento_Hospitalar
 
             banco.Parameters.AddWithValue("@preferencial", p.getPreferencial());
 
-            banco.ExecuteNonQuery();
-
+            try
+            {
+                banco.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro ao inserir informações no banco de dados");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+            
             conexao.Close();
         }
 
         public void consultarPaciente(Paciente P)
         {
-            String sql = "select * from fila;";
+            String sql = "select * from fila order by preferencial desc;;";
 
             MySqlCommand banco = new MySqlCommand(sql, conexao);
 
@@ -62,7 +80,106 @@ namespace Atendimento_Hospitalar
                 Console.ReadKey();
             }
             conexao.Close();
-            Console.ReadKey();
+        }
+
+        public void atualizarPaciente(Paciente p)
+        {
+            String sql = "update fila set nome=@nome, idade=@idade, telefone=@telefone, email=@email, preferencial=@preferencial where cpf=@cpf;";
+
+            MySqlCommand banco = new MySqlCommand(sql, conexao);
+
+            banco = new MySqlCommand(sql, conexao);
+
+            banco.Parameters.AddWithValue("@cpf", p.getCpf());
+
+            banco.Parameters.AddWithValue("@nome", p.getNome());
+
+            banco.Parameters.AddWithValue("@idade", p.getIdade());
+
+            banco.Parameters.AddWithValue("@telefone", p.getTelefone());
+
+            banco.Parameters.AddWithValue("@email", p.getEmail());
+
+            banco.Parameters.AddWithValue("@preferencial", p.getPreferencial());
+
+            try
+            {
+                banco.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro ao atualizar informações no banco de dados");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+
+            conexao.Close();
+        }
+
+        public void attconsulPaciente(Paciente P)
+        {
+            String sql = "select cpf from fila order by preferencial desc;";
+
+            MySqlCommand banco = new MySqlCommand(sql, conexao);
+
+            MySqlDataReader bancor = banco.ExecuteReader();
+
+            while (bancor.Read())
+            {
+                Console.WriteLine("CPF: {0}", bancor["cpf"]);
+            }
+            conexao.Close();
+        }
+
+        public void deletarPaciente(Paciente p)
+        {
+            String sql = "delete from fila where cpf=@cpf;";
+
+            MySqlCommand banco = new MySqlCommand(sql, conexao);
+
+            banco = new MySqlCommand(sql, conexao);
+
+            banco.Parameters.AddWithValue("@cpf", p.getCpf());
+
+            try
+            {
+                banco.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro ao deletar informações no banco de dados");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+
+            conexao.Close();
+        }
+
+        public string dltconsulPaciente(Paciente P)
+        {
+            string pull = "";
+
+            String sql = "select cpf from fila order by preferencial desc;";
+
+            MySqlCommand banco = new MySqlCommand(sql, conexao);
+
+            MySqlDataReader bancor = banco.ExecuteReader();
+
+            bancor.Read();
+
+            try
+            {
+                Console.WriteLine("CPF: {0}", bancor["cpf"]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Não há nenhum paciente cadastrado");
+                Console.ReadKey();
+                pull = "a";
+            }
+
+            conexao.Close();
+            return pull;
         }
     }
 }

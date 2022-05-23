@@ -16,6 +16,7 @@ namespace Atendimento_Hospitalar
         private string email;
         private string preferencial;
         Paciente p;
+        PacienteDAO pDAO = new PacienteDAO();
 
 
 
@@ -27,16 +28,19 @@ namespace Atendimento_Hospitalar
             nome = Console.ReadLine();
             Console.WriteLine("Digite a idade:");
             idade = int.Parse(Console.ReadLine());
-            Console.WriteLine("Digite um telefone:");
+            Console.WriteLine("Digite o telefone:");
             telefone = double.Parse(Console.ReadLine());
-            Console.WriteLine("Digite um email:");
+            Console.WriteLine("Digite o email:");
             email = Console.ReadLine();
-            Console.WriteLine("Digite um preferencial:");
+            Console.WriteLine("Digite se é preferencial(s/n):");
             preferencial = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Cadastrado");
+            Console.ReadKey();
         }
 
 
-        public void send()
+        public void set()
         {
             p = new Paciente();
 
@@ -54,28 +58,67 @@ namespace Atendimento_Hospitalar
 
         }
 
-         public void funcao(string escolha)
+        public void atualizar()
         {
-            PacienteDAO pDAO = new PacienteDAO();
+            pDAO = new PacienteDAO();
+            Console.WriteLine("CPFs de pacientes cadastrados:");
+            pDAO.attconsulPaciente(p);
+            Console.WriteLine("Digite o cpf do paciente que será modificado:");
+            cpf = double.Parse(Console.ReadLine());
+            Console.WriteLine("Atualize o nome:");
+            nome = Console.ReadLine();
+            Console.WriteLine("Atualize a idade:");
+            idade = int.Parse(Console.ReadLine());
+            Console.WriteLine("Atualize o telefone:");
+            telefone = double.Parse(Console.ReadLine());
+            Console.WriteLine("Atualize o email:");
+            email = Console.ReadLine();
+            Console.WriteLine("Atualize se é preferencial(s/n):");
+            preferencial = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Atualizado");
+            Console.ReadKey();
 
-            if (escolha == "cadastrar"){
+        }
+
+        public string deletar()
+        {
+            string pull;
+            pDAO = new PacienteDAO();
+            Console.WriteLine("CPF do paciente:");
+            pull = pDAO.dltconsulPaciente(p);
+            if (pull != "a")
+            {
+                Console.WriteLine("Insira o cpf do paciente que será deletado:");
+                cpf = double.Parse(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Deletado");
+                Console.ReadKey();
+            }
+            return pull;
+            
+        }
+
+        public void funcao(string escolha)
+        {
+            pDAO = new PacienteDAO();
+
+            if (escolha == "I"){
 
                 pDAO.cadastrarPaciente(p);
 
-            }else if (escolha == "consultar"){
+            }else if (escolha == "S"){
 
-                   pDAO.consultarPaciente(p);
+                pDAO.consultarPaciente(p);
 
-             }
+            }else if (escolha == "U"){
 
-            //}else if ($lindin == 'atualizar'){
+                pDAO.atualizarPaciente(p);
 
-       // $funcDao->atualizarFuncionario($func);
+            }else if (escolha == "D"){
 
-           // }else if ($lindin == 'deletar'){
-        
-       // $funcDao->deletarFuncionario($codigo);
-            //}
+                pDAO.deletarPaciente(p);
+            }
        }
 
     }
