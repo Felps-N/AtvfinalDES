@@ -31,7 +31,7 @@ namespace Atendimento_Hospitalar
             Console.WriteLine("Digite se é preferencial(s/n):");
             preferencial = Console.ReadLine();
             Console.Clear();
-            Console.Write("Cadastrado ");
+            Console.Write("Cadastrando ");
             for (int i = 3; i > 0; i--)
             {
                 Console.Write(i + "... ");
@@ -54,7 +54,7 @@ namespace Atendimento_Hospitalar
             Console.WriteLine("Atualize se é preferencial(s/n):");
             preferencial = Console.ReadLine();
             Console.Clear();
-            Console.Write("Atualizado ");
+            Console.Write("Atualizando ");
             for (int i = 3; i > 0; i--)
             {
                 Console.Write(i+"... ");
@@ -69,7 +69,7 @@ namespace Atendimento_Hospitalar
                 Console.WriteLine("Insira o cpf do paciente que será deletado:");
                 cpf = double.Parse(Console.ReadLine());
                 Console.Clear();
-                Console.Write("Deletado ");
+                Console.Write("Deletando ");
                 for (int i = 3; i > 0; i--)
                 {
                    Console.Write(i + "... ");

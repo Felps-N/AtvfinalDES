@@ -82,8 +82,8 @@ namespace Atendimento_Hospitalar
                 {
                     Thread.Sleep(500);
                 }
-                Console.ReadKey();
             }
+            Console.ReadKey();
             conexao.Close();
         }
 

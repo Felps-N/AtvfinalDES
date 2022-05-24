@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 
 namespace Atendimento_Hospitalar
@@ -16,12 +17,16 @@ namespace Atendimento_Hospitalar
 
             do
             {
+                Console.Clear();
                 real = Con.menu();
             } while (real.ToUpper() != "Q");
             Console.Clear();
-            Console.WriteLine("Fechado");
-            Console.ReadKey();
-
+            Console.Write("Fechando ");
+            for (int i = 3; i > 0; i--)
+            {
+                Console.Write(i + "... ");
+                Thread.Sleep(1000);
+            }
         }
     }
 }
