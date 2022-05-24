@@ -11,6 +11,7 @@ namespace Atendimento_Hospitalar
 
         string pull;
         string real;
+        string ac;
         Paciente p;
         PacienteDAO pDAO;
 
@@ -36,23 +37,22 @@ namespace Atendimento_Hospitalar
                     break;
                 case "S":
                     Console.Clear();
-                    pDAO.consultarPaciente(p);
+                    pDAO.consultarPaciente(p, ac = "s");
                     Console.Clear();
                     break;
                 case "U":
                     Console.Clear();
                     Console.WriteLine("CPFs de pacientes cadastrados:");
-                    pDAO.attconsulPaciente(p);
+                    pDAO.consultarPaciente(p, ac = "upd");
                     p.atualizar();
                     pDAO.atualizarPaciente(p);
                     Console.Clear();
                     break;
                 case "D":
                      Console.Clear();
-                     pDAO = new PacienteDAO();
                      Console.WriteLine("CPF do paciente:");
-                     pull = pDAO.dltconsulPaciente(p);
-                     if (pull != "a")
+                     pull = pDAO.consultarPaciente(p, ac = "del");
+                    if (pull != "a")
                      {
                          p.deletar();
                          pDAO.deletarPaciente(p);

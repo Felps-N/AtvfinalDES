@@ -64,32 +64,83 @@ namespace Atendimento_Hospitalar
             conexao.Close();
         }
 
-        public void consultarPaciente(Paciente P)
+        public string consultarPaciente(Paciente P, string acao)
         {
-            String sql = "select * from fila order by preferencial desc;";
-
-            MySqlCommand banco = new MySqlCommand(sql, conexao);
-
-            MySqlDataReader bancor = banco.ExecuteReader();
-
-            while (bancor.Read())
+            string pull = "";
+            if (acao == "s")
             {
-                Console.WriteLine("CPF: {0}\nNome: {1}\nIdade: {2}\nTelefone: {3}\nEmail: {4}\nPreferencia: {5}", bancor["cpf"], bancor["nome"], bancor["idade"], bancor["telefone"], bancor["email"], bancor["preferencial"]);
+                String sql = "select * from fila order by preferencial desc;";
 
-                Console.WriteLine(" ");
+                MySqlCommand banco = new MySqlCommand(sql, conexao);
 
-                for (int i = 3; i > 0; i--)
+                MySqlDataReader bancor = banco.ExecuteReader();
+
+                while (bancor.Read())
                 {
-                    Thread.Sleep(500);
+                    Console.WriteLine("CPF: {0}\nNome: {1}\nIdade: {2}\nTelefone: {3}\nEmail: {4}\nPreferencia: {5}", bancor["cpf"], bancor["nome"], bancor["idade"], bancor["telefone"], bancor["email"], bancor["preferencial"]);
+
+                    Console.WriteLine(" ");
+
+                    for (int i = 3; i > 0; i--)
+                    {
+                        Thread.Sleep(500);
+                    }
                 }
+                Console.ReadKey();
+                conexao.Close();
+
+            }else if (acao == "upd")
+            {
+                String sql = "select cpf from fila order by preferencial desc;";
+
+                MySqlCommand banco = new MySqlCommand(sql, conexao);
+
+                MySqlDataReader bancor = banco.ExecuteReader();
+
+                while (bancor.Read())
+                {
+                    Console.WriteLine("CPF: {0}", bancor["cpf"]);
+                }
+                conexao.Close();
+            }else if (acao == "del")
+            {
+                String sql = "select cpf from fila order by preferencial desc;";
+
+                MySqlCommand banco = new MySqlCommand(sql, conexao);
+
+                MySqlDataReader bancor = banco.ExecuteReader();
+
+                bancor.Read();
+
+                try
+                {
+                    Console.WriteLine("CPF: {0}", bancor["cpf"]);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Não há nenhum paciente cadastrado");
+                    Console.ReadKey();
+                    pull = "a";
+                }
+
+                conexao.Close();
             }
-            Console.ReadKey();
-            conexao.Close();
+            return pull;
+
         }
 
         public void atualizarPaciente(Paciente p)
         {
-            conexao.Open();
+            try
+            {
+                conexao.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro, banco já está aberto");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
 
             String sql = "update fila set nome=@nome, idade=@idade, telefone=@telefone, email=@email, preferencial=@preferencial where cpf=@cpf;";
 
@@ -123,24 +174,18 @@ namespace Atendimento_Hospitalar
             conexao.Close();
         }
 
-        public void attconsulPaciente(Paciente P)
-        {
-            String sql = "select cpf from fila order by preferencial desc;";
-
-            MySqlCommand banco = new MySqlCommand(sql, conexao);
-
-            MySqlDataReader bancor = banco.ExecuteReader();
-
-            while (bancor.Read())
-            {
-                Console.WriteLine("CPF: {0}", bancor["cpf"]);
-            }
-            conexao.Close();
-        }
-
         public void deletarPaciente(Paciente p)
         {
-            conexao.Open();
+            try
+            {
+                conexao.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erro, banco já está aberto");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
 
             String sql = "delete from fila where cpf=@cpf;";
 
@@ -162,33 +207,6 @@ namespace Atendimento_Hospitalar
             }
 
             conexao.Close();
-        }
-
-        public string dltconsulPaciente(Paciente P)
-        {
-            string pull = "";
-
-            String sql = "select cpf from fila order by preferencial desc;";
-
-            MySqlCommand banco = new MySqlCommand(sql, conexao);
-
-            MySqlDataReader bancor = banco.ExecuteReader();
-
-            bancor.Read();
-
-            try
-            {
-                Console.WriteLine("CPF: {0}", bancor["cpf"]);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Não há nenhum paciente cadastrado");
-                Console.ReadKey();
-                pull = "a";
-            }
-
-            conexao.Close();
-            return pull;
         }
     }
 }
